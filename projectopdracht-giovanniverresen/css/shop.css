@@ -1,0 +1,81 @@
+/* Shop Specific Styles */
+
+.shop-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+h2 {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+/* If we add a sidebar later, this will handle the layout */
+@media (min-width: 1024px) {
+    .shop-layout {
+        flex-direction: row;
+        gap: 2rem;
+        align-items: flex-start;
+        /* Belangrijk voor sticky behavior */
+    }
+
+    .user-panels {
+        width: 350px;
+        /* Vaste breedte voor de zijbalk */
+        flex-shrink: 0;
+        /* Mag niet kleiner worden */
+        flex-direction: column;
+        /* Panels onder elkaar */
+        gap: 2rem;
+
+        /* Sticky effect! */
+        position: sticky;
+        top: 20px;
+    }
+
+    #product-grid {
+        flex: 1;
+        /* Neemt de rest van de ruimte in */
+        /* FORCEER 3 KOLOMMEN NAAST ELKAAR */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Cart Panel Styles (Refactored from inline) */
+.price-breakdown {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+#cart-total-price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.checkout-btn,
+.clear-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    /* Added for consistency */
+    color: white;
+}
+
+.checkout-btn {
+    margin-bottom: 5px;
+    background: #27ae60;
+    opacity: 0.7;
+    /* Ruwbouw state */
+}
+
+.clear-btn {
+    background: #c0392b;
+}

@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Wand of Smiles",
+        "price": 45.00,
+        "image": "assets/shopItems/wand_of_smiles.png",
+        "category": "Wands"
+    },
+    {
+        "id": 2,
+        "name": "Enchanted Crystal",
+        "price": 150.00,
+        "image": "assets/shopItems/enchanted_crystal.png",
+        "category": "Artifacts"
+    },
+    {
+        "id": 3,
+        "name": "Dragon Potion",
+        "price": 85.50,
+        "image": "assets/shopItems/dragon_potion.png",
+        "category": "Potions"
+    },
+    {
+        "id": 4,
+        "name": "Blue Alchemy Jug",
+        "price": 320.00,
+        "image": "assets/shopItems/blue_alchemy_jug.png",
+        "category": "Artifacts"
+    },
+    {
+        "id": 5,
+        "name": "Phoenix Feather",
+        "price": 500.00,
+        "image": "assets/shopItems/phoenix_feather.png",
+        "category": "Ingredients"
+    },
+    {
+        "id": 6,
+        "name": "Mystic Orb",
+        "price": 200.00,
+        "image": "assets/shopItems/enchanted_crystal.png",
+        "category": "Artifacts"
+    }
+]

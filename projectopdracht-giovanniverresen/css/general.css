@@ -1,0 +1,497 @@
+:root {
+    --bg-color: #E8E4D0;
+    /* Beige parchment */
+    --card-bg: #E8E4D0;
+    --text-color: #2C2C2C;
+    --accent-color: #E89E46;
+    /* Orange button */
+    --accent-hover: #D68A35;
+    --magical-blue: #00A8E8;
+    /* For glow effects */
+    --font-heading: 'Cinzel', serif;
+    /* Magical feel */
+    --font-body: 'Lato', sans-serif;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: #1a1a1a;
+}
+
+/* Utility Class for alignment */
+.section-title {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+button {
+    cursor: pointer;
+    font-family: var(--font-body);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Header */
+header {
+    background: #2a2a2a;
+    color: white;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    /* Mobile first: Column */
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo img {
+    height: 60px;
+    /* Adjust logo size */
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    /* Space between links */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 2rem;
+    /* "cart en wishlist moeten een beetje uitelkaar" */
+}
+
+.header-actions a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-actions a:hover {
+    color: var(--accent-color);
+}
+
+/* Desktop Header Layout */
+@media (min-width: 1024px) {
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        /* This allows Logo Center if markup order is correct or via flex order */
+    }
+
+    /* We want Order: Nav(Left) - Logo(Center) - Icons(Right) 
+       HTML Structure: Logo - Nav - Actions. 
+       We can reorder with flex.
+    */
+    .logo {
+        order: 2;
+        flex: 1;
+        /* Allows centering? */
+        display: flex;
+        justify-content: center;
+    }
+
+    nav {
+        order: 1;
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .header-actions {
+        order: 3;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: #888;
+    padding: 3rem 0;
+    margin-top: auto;
+    /* Push to bottom */
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 50px;
+    opacity: 0.7;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* Reuseable Card Style */
+.product-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #000;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wishlist-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: transparent;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    padding: 5px;
+    z-index: 10;
+}
+
+.wishlist-btn.active {
+    color: red;
+}
+
+.add-to-cart-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--accent-hover);
+}
+
+.card-content {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Common Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background: var(--bg-color);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* No overflow-y: auto here, we want only the content to scroll */
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-content {
+    flex: 1;
+    /* Takes all available space */
+    overflow-y: auto;
+    /* Scrolls if content is too long */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    /* Space before footer */
+}
+
+.sidebar-footer {
+    border-top: 2px solid var(--accent-color);
+    padding-top: 1rem;
+    margin-top: auto;
+    /* Pushes to bottom if content is short */
+    background: var(--bg-color);
+    /* Cover scrolling content */
+}
+
+.cart-item,
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img,
+.wishlist-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.item-price {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.remove-btn {
+    background: transparent;
+    color: #ff4444;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+.remove-btn:hover {
+    color: #cc0000;
+}
+
+.cart-total {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.checkout-btn {
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.checkout-btn:hover {
+    background: var(--accent-hover);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Mobile Sidebar Width */
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+/* Nieuwe styling voor de ronde winkelmand knop */
+.add-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: white;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 10;
+}
+
+/* Nieuwe Panelen styling (voor Shop pagina) */
+.user-panels {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.static-panel {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--accent-color);
+}
+
+.static-panel h2 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.panel-content {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.cart-item,
+.wishlist-item {
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 0.5rem;
+    /* BONUS: Animatie als het item verschijnt! */
+    animation: invliegen 0.5s ease-out;
+}
+
+/* De animatie zelf: van klein en onzichtbaar naar normaal */
+@keyframes invliegen {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* New remove button style (moved from inline) */
+.cart-remove-item-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #e74c3c;
+    transition: transform 0.2s;
+}
+
+.cart-remove-item-btn:hover {
+    color: #c0392b;
+    transform: scale(1.1);
+}

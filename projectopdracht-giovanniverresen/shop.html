@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Shop - Products</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/shop.css">
+
+    
+    <script src="./js/products.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src="./js/wishlist.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./assets/shoplogo/logo.png" alt="Arcana Brew Logo">
+                </a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./shop.html">Shop</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" id="cart-toggle"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+                <a href="#" id="wishlist-toggle"><i class="fas fa-heart"></i> <span id="wishlist-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+
+
+        <h2 class="section-title">Our Products</h2>
+
+        <div class="shop-layout">
+            
+
+            <div id="product-grid" class="product-grid">
+                
+            </div>
+
+            <!-- RIGHT COLUMN: User Panels (Cart & Wishlist) -->
+            <div class="user-panels">
+                <section id="cart-panel" class="static-panel">
+                    <h2>Winkelmandje 🛒</h2>
+                    <div id="cart-items" class="panel-content">
+                        <p>Je mandje is leeg.</p>
+                    </div>
+                    <div id="cart-footer" class="panel-footer">
+                        <div class="price-breakdown">
+                            <div id="cart-netto">Netto: 0.00 GP</div>
+                            <div id="cart-vat">BTW (21%): 0.00 GP</div>
+                        </div>
+                        <div id="cart-total-price">
+                            Totaal: 0 GP</div>
+
+                        <button class="checkout-btn">Afrekenen
+                             💳</button>
+                        <button onclick="maakAllesLeeg()" class="clear-btn">Alles
+                            Verwijderen 🗑️</button>
+                    </div>
+                </section>
+
+                <section id="wishlist-panel" class="static-panel">
+                    <h2>Verlanglijstje ❤️</h2>
+                    <div id="wishlist-items" class="panel-content">
+                        <p>Nog niks op je lijstje.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Arcana Brew. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
